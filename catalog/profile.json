@@ -1,0 +1,298 @@
+{
+  "gerado_em": "2026-06-14T13:32:07",
+  "camadas": {
+    "bronze": {
+      "usuarios": {
+        "linhas": 10000,
+        "colunas": [
+          "id_usuario",
+          "nome",
+          "email",
+          "cidade",
+          "data_cadastro",
+          "_data_ingestao",
+          "_fonte"
+        ],
+        "nulos_pct": {
+          "id_usuario": 0.0,
+          "nome": 0.0,
+          "email": 0.0,
+          "cidade": 0.0,
+          "data_cadastro": 0.0,
+          "_data_ingestao": 0.0,
+          "_fonte": 0.0
+        },
+        "distintos": {
+          "id_usuario": 10000,
+          "nome": 8882,
+          "email": 9576,
+          "cidade": 2958,
+          "data_cadastro": 1095,
+          "_data_ingestao": 1,
+          "_fonte": 1
+        }
+      },
+      "livros": {
+        "linhas": 5000,
+        "colunas": [
+          "id_livro",
+          "titulo",
+          "autor",
+          "isbn",
+          "genero",
+          "editora",
+          "ano",
+          "_data_ingestao",
+          "_fonte"
+        ],
+        "nulos_pct": {
+          "id_livro": 0.0,
+          "titulo": 0.0,
+          "autor": 0.0,
+          "isbn": 0.0,
+          "genero": 0.0,
+          "editora": 0.0,
+          "ano": 0.0,
+          "_data_ingestao": 0.0,
+          "_fonte": 0.0
+        },
+        "distintos": {
+          "id_livro": 5000,
+          "titulo": 3079,
+          "autor": 4719,
+          "isbn": 5000,
+          "genero": 8,
+          "editora": 10,
+          "ano": 77,
+          "_data_ingestao": 1,
+          "_fonte": 1
+        }
+      },
+      "emprestimos": {
+        "linhas": 20000,
+        "colunas": [
+          "id_emprestimo",
+          "id_usuario",
+          "id_livro",
+          "data_emprestimo",
+          "data_devolucao",
+          "_data_ingestao",
+          "_fonte"
+        ],
+        "nulos_pct": {
+          "id_emprestimo": 0.0,
+          "id_usuario": 0.0,
+          "id_livro": 0.0,
+          "data_emprestimo": 0.0,
+          "data_devolucao": 0.2018,
+          "_data_ingestao": 0.0,
+          "_fonte": 0.0
+        },
+        "distintos": {
+          "id_emprestimo": 20000,
+          "id_usuario": 8751,
+          "id_livro": 4416,
+          "data_emprestimo": 366,
+          "data_devolucao": 395,
+          "_data_ingestao": 1,
+          "_fonte": 1
+        }
+      },
+      "avaliacoes": {
+        "linhas": 4000,
+        "colunas": [
+          "id_avaliacao",
+          "id_usuario",
+          "id_livro",
+          "nota",
+          "comentario",
+          "data_avaliacao",
+          "_data_ingestao",
+          "_fonte"
+        ],
+        "nulos_pct": {
+          "id_avaliacao": 0.0,
+          "id_usuario": 0.0,
+          "id_livro": 0.0,
+          "nota": 0.0,
+          "comentario": 0.0,
+          "data_avaliacao": 0.0,
+          "_data_ingestao": 0.0,
+          "_fonte": 0.0
+        },
+        "distintos": {
+          "id_avaliacao": 4000,
+          "id_usuario": 3290,
+          "id_livro": 2140,
+          "nota": 8,
+          "comentario": 2580,
+          "data_avaliacao": 366,
+          "_data_ingestao": 1,
+          "_fonte": 1
+        }
+      },
+      "acessos": {
+        "linhas": 6100,
+        "colunas": [
+          "id_evento",
+          "id_usuario",
+          "tipo_evento",
+          "id_livro",
+          "timestamp_evento",
+          "_data_ingestao",
+          "_fonte"
+        ],
+        "nulos_pct": {
+          "id_evento": 0.0,
+          "id_usuario": 0.0,
+          "tipo_evento": 0.0,
+          "id_livro": 0.0,
+          "timestamp_evento": 0.0,
+          "_data_ingestao": 0.0,
+          "_fonte": 0.0
+        },
+        "distintos": {
+          "id_evento": 6100,
+          "id_usuario": 1883,
+          "tipo_evento": 3,
+          "id_livro": 1695,
+          "timestamp_evento": 4,
+          "_data_ingestao": 1,
+          "_fonte": 1
+        }
+      }
+    },
+    "silver": {
+      "usuarios": {
+        "linhas": 9886,
+        "colunas": [
+          "id_usuario",
+          "email",
+          "cidade",
+          "data_cadastro",
+          "nome_pseudo"
+        ],
+        "nulos_pct": {
+          "id_usuario": 0.0,
+          "email": 0.0,
+          "cidade": 0.0,
+          "data_cadastro": 0.0,
+          "nome_pseudo": 0.0
+        },
+        "distintos": {
+          "id_usuario": 9886,
+          "email": 3873,
+          "cidade": 2940,
+          "data_cadastro": 1095,
+          "nome_pseudo": 8796
+        }
+      },
+      "livros": {
+        "linhas": 5000,
+        "colunas": [
+          "id_livro",
+          "titulo",
+          "autor",
+          "isbn",
+          "genero",
+          "editora",
+          "ano"
+        ],
+        "nulos_pct": {
+          "id_livro": 0.0,
+          "titulo": 0.0,
+          "autor": 0.0,
+          "isbn": 0.0,
+          "genero": 0.0,
+          "editora": 0.0,
+          "ano": 0.0
+        },
+        "distintos": {
+          "id_livro": 5000,
+          "titulo": 3079,
+          "autor": 4719,
+          "isbn": 5000,
+          "genero": 8,
+          "editora": 10,
+          "ano": 77
+        }
+      },
+      "emprestimos": {
+        "linhas": 19789,
+        "colunas": [
+          "id_emprestimo",
+          "id_usuario",
+          "id_livro",
+          "data_emprestimo",
+          "data_devolucao"
+        ],
+        "nulos_pct": {
+          "id_emprestimo": 0.0,
+          "id_usuario": 0.0,
+          "id_livro": 0.0,
+          "data_emprestimo": 0.0,
+          "data_devolucao": 0.2019
+        },
+        "distintos": {
+          "id_emprestimo": 19789,
+          "id_usuario": 8578,
+          "id_livro": 4406,
+          "data_emprestimo": 366,
+          "data_devolucao": 395
+        }
+      },
+      "avaliacoes": {
+        "linhas": 3983,
+        "colunas": [
+          "id_avaliacao",
+          "id_usuario",
+          "id_livro",
+          "nota",
+          "comentario",
+          "data_avaliacao"
+        ],
+        "nulos_pct": {
+          "id_avaliacao": 0.0,
+          "id_usuario": 0.0,
+          "id_livro": 0.0,
+          "nota": 0.0,
+          "comentario": 0.0,
+          "data_avaliacao": 0.0
+        },
+        "distintos": {
+          "id_avaliacao": 3983,
+          "id_usuario": 3279,
+          "id_livro": 2136,
+          "nota": 5,
+          "comentario": 2573,
+          "data_avaliacao": 366
+        }
+      },
+      "acessos": {
+        "linhas": 6100,
+        "colunas": [
+          "id_evento",
+          "id_usuario",
+          "tipo_evento",
+          "id_livro",
+          "timestamp_evento"
+        ],
+        "nulos_pct": {
+          "id_evento": 0.0,
+          "id_usuario": 0.0,
+          "tipo_evento": 0.0,
+          "id_livro": 0.0,
+          "timestamp_evento": 0.0
+        },
+        "distintos": {
+          "id_evento": 6100,
+          "id_usuario": 1883,
+          "tipo_evento": 3,
+          "id_livro": 1695,
+          "timestamp_evento": 4
+        }
+      }
+    }
+  },
+  "deriva_schema": []
+}

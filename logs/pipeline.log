@@ -1,0 +1,1148 @@
+12:39:43 | INFO    | bibliodata.orquestrador      | ================================================================
+12:39:43 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_123943_e2433a
+12:39:43 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+12:39:43 | INFO    | bibliodata.orquestrador      | ================================================================
+12:39:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com fallback (stdlib) (seed=42)
+12:39:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+12:39:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+12:39:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+12:39:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+12:39:44 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_123944.jsonl
+12:39:44 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 99.04% | 96 invalidos
+12:39:44 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+12:39:44 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.98% | 204 invalidos
+12:39:44 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.40% | 24 invalidos
+12:39:44 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+12:39:44 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 2000 eventos | qualidade 100.00%
+12:39:45 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 96 registros -> usuarios_20260611_123945.parquet
+12:39:45 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9904 validos | 96 em quarentena | qualidade 99.04%
+12:39:45 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+12:39:45 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 204 registros -> emprestimos_20260611_123945.parquet
+12:39:45 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19796 validos | 204 em quarentena | qualidade 98.98%
+12:39:45 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 24 registros -> avaliacoes_20260611_123945.parquet
+12:39:45 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3976 validos | 24 em quarentena | qualidade 99.40%
+12:39:45 | INFO    | bibliodata.transform.silver  | Silver/acessos: 2000 validos | 0 em quarentena | qualidade 100.00%
+12:39:45 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+12:39:45 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+12:39:45 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+12:39:45 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+12:39:45 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+12:39:45 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+12:39:45 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+12:39:45 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+12:39:45 | INFO    | bibliodata.orquestrador      | ================================================================
+12:39:45 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_123943_e2433a | status=sucesso
+12:39:45 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.46s
+12:39:45 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=2000    out=2000    0.02s | qualidade 100.00%
+12:39:45 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=41000   out=40676   0.59s | qualidade 98.98% | quarentena 324
+12:39:45 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.32s
+12:39:45 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.06s
+12:39:45 | INFO    | bibliodata.orquestrador      | ================================================================
+12:41:49 | INFO    | bibliodata.orquestrador      | ================================================================
+12:41:49 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_124149_85ee07
+12:41:49 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+12:41:49 | INFO    | bibliodata.orquestrador      | ================================================================
+12:41:49 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+12:41:49 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+12:41:49 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+12:41:49 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+12:41:49 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+12:41:49 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_124149.jsonl
+12:41:49 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+12:41:50 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+12:41:50 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+12:41:50 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+12:41:50 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+12:41:50 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 4000 eventos | qualidade 100.00%
+12:41:50 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_124150.parquet
+12:41:50 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+12:41:50 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+12:41:50 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_124150.parquet
+12:41:50 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+12:41:50 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_124150.parquet
+12:41:50 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+12:41:50 | INFO    | bibliodata.transform.silver  | Silver/acessos: 4000 validos | 0 em quarentena | qualidade 100.00%
+12:41:51 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: duckdb
+12:41:51 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+12:41:51 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+12:41:51 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+12:41:51 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+12:41:51 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+12:41:51 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+12:41:51 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+12:41:51 | INFO    | bibliodata.orquestrador      | ================================================================
+12:41:51 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_124149_85ee07 | status=sucesso
+12:41:51 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.33s
+12:41:51 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=4000    out=4000    0.02s | qualidade 100.00%
+12:41:51 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=43000   out=42658   0.46s | qualidade 98.86% | quarentena 342
+12:41:51 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.68s
+12:41:51 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.06s
+12:41:51 | INFO    | bibliodata.orquestrador      | ================================================================
+12:44:30 | INFO    | bibliodata.orquestrador      | ================================================================
+12:44:30 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_124430_cf0cf5
+12:44:30 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+12:44:30 | INFO    | bibliodata.orquestrador      | ================================================================
+12:44:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+12:44:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+12:44:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+12:44:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+12:44:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+12:44:30 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_124430.jsonl
+12:44:30 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+12:44:30 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+12:44:30 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+12:44:30 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+12:44:30 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+12:44:30 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 6000 eventos | qualidade 100.00%
+12:44:30 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_124430.parquet
+12:44:30 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+12:44:30 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+12:44:30 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_124430.parquet
+12:44:30 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+12:44:30 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_124430.parquet
+12:44:30 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+12:44:30 | INFO    | bibliodata.transform.silver  | Silver/acessos: 6000 validos | 0 em quarentena | qualidade 100.00%
+12:44:31 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: duckdb
+12:44:31 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+12:44:31 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+12:44:31 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+12:44:31 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+12:44:31 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+12:44:31 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+12:44:31 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+12:44:31 | INFO    | bibliodata.orquestrador      | ================================================================
+12:44:31 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_124430_cf0cf5 | status=sucesso
+12:44:31 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.14s
+12:44:31 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=6000    out=6000    0.03s | qualidade 100.00%
+12:44:31 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=45000   out=44658   0.17s | qualidade 98.86% | quarentena 342
+12:44:31 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.24s
+12:44:31 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.06s
+12:44:31 | INFO    | bibliodata.orquestrador      | ================================================================
+13:45:45 | INFO    | bibliodata.orquestrador      | ================================================================
+13:45:45 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_134545_b7d5a8
+13:45:45 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+13:45:45 | INFO    | bibliodata.orquestrador      | ================================================================
+13:45:45 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+13:45:45 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+13:45:45 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+13:45:45 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+13:45:45 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+13:45:45 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_134545.jsonl
+13:45:45 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+13:45:45 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+13:45:45 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+13:45:45 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+13:45:45 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+13:45:45 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 8000 eventos | qualidade 100.00%
+13:45:45 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_134545.parquet
+13:45:45 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+13:45:45 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+13:45:45 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_134545.parquet
+13:45:45 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+13:45:45 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_134545.parquet
+13:45:45 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+13:45:46 | INFO    | bibliodata.transform.silver  | Silver/acessos: 8000 validos | 0 em quarentena | qualidade 100.00%
+13:45:46 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 1): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192) | retry em 1.0s
+13:45:47 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 2): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192) | retry em 2.0s
+13:45:49 | ERROR   | bibliodata.orquestrador      | Pipeline interrompido: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192)
+Traceback (most recent call last):
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 88, in rodar
+    _executar_com_retry(
+    ~~~~~~~~~~~~~~~~~~~^
+        "transformar_gold", transformar_gold.transformar, metrics, metrics=metrics
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 38, in _executar_com_retry
+    return func(**kwargs)
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 125, in transformar
+    conn, engine = _conectar()
+                   ~~~~~~~~~^^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 95, in _conectar
+    return duckdb.connect(str(settings.GOLD_DUCKDB)), "duckdb"
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192)
+13:45:49 | INFO    | bibliodata.orquestrador      | ================================================================
+13:45:49 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_134545_b7d5a8 | status=falha
+13:45:49 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.14s
+13:45:49 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=8000    out=8000    0.04s | qualidade 100.00%
+13:45:49 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=47000   out=46658   0.20s | qualidade 98.86% | quarentena 342
+13:45:49 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+13:45:49 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 1)
+13:45:49 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 2)
+13:45:49 | INFO    | bibliodata.orquestrador      |     [CRITICAL] Tarefa 'transformar_gold' falhou apos 2 retries: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192)
+13:45:49 | INFO    | bibliodata.orquestrador      | ================================================================
+13:49:30 | INFO    | bibliodata.orquestrador      | ================================================================
+13:49:30 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_134930_b863d0
+13:49:30 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+13:49:30 | INFO    | bibliodata.orquestrador      | ================================================================
+13:49:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+13:49:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 300 registros -> usuarios.csv
+13:49:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 200 registros -> livros.csv
+13:49:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 600 registros -> emprestimos.csv
+13:49:30 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 300 registros -> avaliacoes.csv
+13:49:30 | INFO    | bibliodata.ingestao.producer | Publicando 100 eventos na fila em arquivo -> acessos_20260611_134930.jsonl
+13:49:30 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 300 linhas | qualidade 100.00% | 0 invalidos
+13:49:30 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 200 linhas | qualidade 100.00% | 0 invalidos
+13:49:30 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 600 linhas | qualidade 98.83% | 7 invalidos
+13:49:30 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 300 linhas | qualidade 99.33% | 2 invalidos
+13:49:30 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+13:49:30 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 8100 eventos | qualidade 100.00%
+13:49:30 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+13:49:30 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+13:49:30 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_134930.parquet
+13:49:30 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+13:49:30 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_134930.parquet
+13:49:30 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+13:49:30 | INFO    | bibliodata.transform.silver  | Silver/acessos: 8100 validos | 0 em quarentena | qualidade 100.00%
+13:49:30 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 1): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192) | retry em 1.0s
+13:49:31 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 2): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192) | retry em 2.0s
+13:49:33 | ERROR   | bibliodata.orquestrador      | Pipeline interrompido: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192)
+Traceback (most recent call last):
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 88, in rodar
+    _executar_com_retry(
+    ~~~~~~~~~~~~~~~~~~~^
+        "transformar_gold", transformar_gold.transformar, metrics, metrics=metrics
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 38, in _executar_com_retry
+    return func(**kwargs)
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 125, in transformar
+    conn, engine = _conectar()
+                   ~~~~~~~~~^^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 95, in _conectar
+    return duckdb.connect(str(settings.GOLD_DUCKDB)), "duckdb"
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192)
+13:49:33 | INFO    | bibliodata.orquestrador      | ================================================================
+13:49:33 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_134930_b863d0 | status=falha
+13:49:33 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=1400    out=1400    0.05s
+13:49:33 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=8100    out=8100    0.04s | qualidade 100.00%
+13:49:33 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=9500    out=9491    0.10s | qualidade 98.83% | quarentena 9
+13:49:33 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+13:49:33 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 39000 -> 1400 (96% de variacao)
+13:49:33 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 1)
+13:49:33 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 2)
+13:49:33 | INFO    | bibliodata.orquestrador      |     [CRITICAL] Tarefa 'transformar_gold' falhou apos 2 retries: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 24192)
+13:49:33 | INFO    | bibliodata.orquestrador      | ================================================================
+13:49:33 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+13:49:33 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+13:49:33 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_134933.parquet
+13:49:33 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+13:49:33 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_134933.parquet
+13:49:33 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+13:49:34 | INFO    | bibliodata.transform.silver  | Silver/acessos: 8100 validos | 0 em quarentena | qualidade 100.00%
+13:52:02 | INFO    | bibliodata.orquestrador      | ================================================================
+13:52:02 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_135202_42773d
+13:52:02 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+13:52:02 | INFO    | bibliodata.orquestrador      | ================================================================
+13:52:02 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+13:52:02 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+13:52:02 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+13:52:02 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+13:52:02 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+13:52:02 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_135202.jsonl
+13:52:02 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+13:52:02 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+13:52:02 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+13:52:02 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+13:52:02 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+13:52:02 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 10100 eventos | qualidade 100.00%
+13:52:03 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_135203.parquet
+13:52:03 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+13:52:03 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+13:52:03 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_135203.parquet
+13:52:03 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+13:52:03 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_135203.parquet
+13:52:03 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+13:52:03 | INFO    | bibliodata.transform.silver  | Silver/acessos: 10100 validos | 0 em quarentena | qualidade 100.00%
+13:52:03 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: duckdb
+13:52:03 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+13:52:03 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+13:52:03 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+13:52:03 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+13:52:03 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+13:52:03 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+13:52:03 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+13:52:03 | INFO    | bibliodata.orquestrador      | ================================================================
+13:52:03 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_135202_42773d | status=sucesso
+13:52:03 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.14s
+13:52:03 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=10100   out=10100   0.05s | qualidade 100.00%
+13:52:03 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=49100   out=48758   0.20s | qualidade 98.86% | quarentena 342
+13:52:03 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.28s
+13:52:03 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.07s
+13:52:03 | INFO    | bibliodata.orquestrador      | ================================================================
+13:54:11 | INFO    | bibliodata.orquestrador      | ================================================================
+13:54:11 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_135411_9296ce
+13:54:11 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+13:54:11 | INFO    | bibliodata.orquestrador      | ================================================================
+13:54:11 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+13:54:11 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 300 registros -> usuarios.csv
+13:54:11 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 200 registros -> livros.csv
+13:54:11 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 600 registros -> emprestimos.csv
+13:54:11 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 300 registros -> avaliacoes.csv
+13:54:11 | INFO    | bibliodata.ingestao.producer | Publicando 100 eventos na fila em arquivo -> acessos_20260611_135411.jsonl
+13:54:11 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 300 linhas | qualidade 100.00% | 0 invalidos
+13:54:11 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 200 linhas | qualidade 100.00% | 0 invalidos
+13:54:11 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 600 linhas | qualidade 98.83% | 7 invalidos
+13:54:11 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 300 linhas | qualidade 99.33% | 2 invalidos
+13:54:11 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+13:54:11 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 10200 eventos | qualidade 100.00%
+13:54:11 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+13:54:11 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+13:54:11 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_135411.parquet
+13:54:11 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+13:54:11 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_135411.parquet
+13:54:11 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+13:54:11 | INFO    | bibliodata.transform.silver  | Silver/acessos: 10200 validos | 0 em quarentena | qualidade 100.00%
+13:54:11 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 1): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 21184) | retry em 1.0s
+13:54:12 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 2): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 21184) | retry em 2.0s
+13:54:14 | ERROR   | bibliodata.orquestrador      | Pipeline interrompido: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 21184)
+Traceback (most recent call last):
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 88, in rodar
+    _executar_com_retry(
+    ~~~~~~~~~~~~~~~~~~~^
+        "transformar_gold", transformar_gold.transformar, metrics, metrics=metrics
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 38, in _executar_com_retry
+    return func(**kwargs)
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 125, in transformar
+    conn, engine = _conectar()
+                   ~~~~~~~~~^^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 95, in _conectar
+    return duckdb.connect(str(settings.GOLD_DUCKDB)), "duckdb"
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 21184)
+13:54:14 | INFO    | bibliodata.orquestrador      | ================================================================
+13:54:14 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_135411_9296ce | status=falha
+13:54:14 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=1400    out=1400    0.05s
+13:54:14 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=10200   out=10200   0.06s | qualidade 100.00%
+13:54:14 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=11600   out=11591   0.10s | qualidade 98.83% | quarentena 9
+13:54:14 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+13:54:14 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 39000 -> 1400 (96% de variacao)
+13:54:14 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 1)
+13:54:14 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 2)
+13:54:14 | INFO    | bibliodata.orquestrador      |     [CRITICAL] Tarefa 'transformar_gold' falhou apos 2 retries: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 21184)
+13:54:14 | INFO    | bibliodata.orquestrador      | ================================================================
+13:54:15 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+13:54:15 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+13:54:15 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_135415.parquet
+13:54:15 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+13:54:15 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_135415.parquet
+13:54:15 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+13:54:15 | INFO    | bibliodata.transform.silver  | Silver/acessos: 10200 validos | 0 em quarentena | qualidade 100.00%
+14:00:22 | INFO    | bibliodata.orquestrador      | ================================================================
+14:00:22 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_140022_eaeca1
+14:00:22 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:00:22 | INFO    | bibliodata.orquestrador      | ================================================================
+14:00:23 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:00:23 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:00:23 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:00:23 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:00:23 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:00:23 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_140023.jsonl
+14:00:23 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:00:23 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:00:23 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:00:23 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:00:23 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:00:23 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 12200 eventos | qualidade 100.00%
+14:00:23 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_140023.parquet
+14:00:23 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:00:23 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:00:23 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_140023.parquet
+14:00:23 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:00:23 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_140023.parquet
+14:00:23 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:00:23 | INFO    | bibliodata.transform.silver  | Silver/acessos: 12200 validos | 0 em quarentena | qualidade 100.00%
+14:00:23 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: duckdb
+14:00:23 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:00:23 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:00:23 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+14:00:23 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:00:23 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:00:24 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:00:24 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:00:24 | INFO    | bibliodata.orquestrador      | ================================================================
+14:00:24 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_140022_eaeca1 | status=sucesso
+14:00:24 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.13s
+14:00:24 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=12200   out=12200   0.05s | qualidade 100.00%
+14:00:24 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=51200   out=50858   0.17s | qualidade 98.86% | quarentena 342
+14:00:24 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.19s
+14:00:24 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.06s
+14:00:24 | INFO    | bibliodata.orquestrador      | ================================================================
+14:01:43 | INFO    | bibliodata.orquestrador      | ================================================================
+14:01:43 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_140143_532c7c
+14:01:43 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:01:43 | INFO    | bibliodata.orquestrador      | ================================================================
+14:01:43 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:01:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:01:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:01:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:01:44 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:01:44 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_140144.jsonl
+14:01:44 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:01:44 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:01:44 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:01:44 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:01:44 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:01:44 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 14200 eventos | qualidade 100.00%
+14:01:44 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_140144.parquet
+14:01:44 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:01:44 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:01:44 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_140144.parquet
+14:01:44 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:01:44 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_140144.parquet
+14:01:44 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:01:44 | INFO    | bibliodata.transform.silver  | Silver/acessos: 14200 validos | 0 em quarentena | qualidade 100.00%
+14:01:44 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: duckdb
+14:01:44 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:01:44 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:01:44 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+14:01:44 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:01:44 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:01:44 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:01:44 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:01:44 | INFO    | bibliodata.orquestrador      | ================================================================
+14:01:44 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_140143_532c7c | status=sucesso
+14:01:44 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.14s
+14:01:44 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=14200   out=14200   0.06s | qualidade 100.00%
+14:01:44 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=53200   out=52858   0.18s | qualidade 98.86% | quarentena 342
+14:01:44 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.20s
+14:01:44 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.07s
+14:01:44 | INFO    | bibliodata.orquestrador      | ================================================================
+14:01:58 | INFO    | bibliodata.orquestrador      | ================================================================
+14:01:58 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_140158_23f123
+14:01:58 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:01:58 | INFO    | bibliodata.orquestrador      | ================================================================
+14:01:58 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:01:58 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 300 registros -> usuarios.csv
+14:01:58 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 200 registros -> livros.csv
+14:01:58 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 600 registros -> emprestimos.csv
+14:01:58 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 300 registros -> avaliacoes.csv
+14:01:58 | INFO    | bibliodata.ingestao.producer | Publicando 100 eventos na fila em arquivo -> acessos_20260611_140158.jsonl
+14:01:58 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 300 linhas | qualidade 100.00% | 0 invalidos
+14:01:58 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 200 linhas | qualidade 100.00% | 0 invalidos
+14:01:58 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 600 linhas | qualidade 98.83% | 7 invalidos
+14:01:58 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 300 linhas | qualidade 99.33% | 2 invalidos
+14:01:58 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:01:58 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 14300 eventos | qualidade 100.00%
+14:01:58 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:01:58 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:01:58 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_140158.parquet
+14:01:58 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:01:58 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_140158.parquet
+14:01:58 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:01:58 | INFO    | bibliodata.transform.silver  | Silver/acessos: 14300 validos | 0 em quarentena | qualidade 100.00%
+14:01:58 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 1): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 8796) | retry em 1.0s
+14:01:59 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 2): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 8796) | retry em 2.0s
+14:02:02 | ERROR   | bibliodata.orquestrador      | Pipeline interrompido: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 8796)
+Traceback (most recent call last):
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 88, in rodar
+    _executar_com_retry(
+    ~~~~~~~~~~~~~~~~~~~^
+        "transformar_gold", transformar_gold.transformar, metrics, metrics=metrics
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 38, in _executar_com_retry
+    return func(**kwargs)
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 139, in transformar
+    conn, engine = _conectar()
+                   ~~~~~~~~~^^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 95, in _conectar
+    return duckdb.connect(str(settings.GOLD_DUCKDB)), "duckdb"
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 8796)
+14:02:02 | INFO    | bibliodata.orquestrador      | ================================================================
+14:02:02 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_140158_23f123 | status=falha
+14:02:02 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=1400    out=1400    0.04s
+14:02:02 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=14300   out=14300   0.06s | qualidade 100.00%
+14:02:02 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=15700   out=15691   0.09s | qualidade 98.83% | quarentena 9
+14:02:02 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:02:02 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 39000 -> 1400 (96% de variacao)
+14:02:02 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 1)
+14:02:02 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 2)
+14:02:02 | INFO    | bibliodata.orquestrador      |     [CRITICAL] Tarefa 'transformar_gold' falhou apos 2 retries: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 8796)
+14:02:02 | INFO    | bibliodata.orquestrador      | ================================================================
+14:02:02 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:02:02 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:02:02 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_140202.parquet
+14:02:02 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:02:02 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_140202.parquet
+14:02:02 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:02:02 | INFO    | bibliodata.transform.silver  | Silver/acessos: 14300 validos | 0 em quarentena | qualidade 100.00%
+14:07:37 | INFO    | bibliodata.orquestrador      | ================================================================
+14:07:37 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_140737_1086eb
+14:07:37 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:07:37 | INFO    | bibliodata.orquestrador      | ================================================================
+14:07:37 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:07:37 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 300 registros -> usuarios.csv
+14:07:37 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 200 registros -> livros.csv
+14:07:37 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 600 registros -> emprestimos.csv
+14:07:37 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 300 registros -> avaliacoes.csv
+14:07:37 | INFO    | bibliodata.ingestao.producer | Publicando 100 eventos na fila em arquivo -> acessos_20260611_140737.jsonl
+14:07:37 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 300 linhas | qualidade 100.00% | 0 invalidos
+14:07:37 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 200 linhas | qualidade 100.00% | 0 invalidos
+14:07:37 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 600 linhas | qualidade 98.83% | 7 invalidos
+14:07:37 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 300 linhas | qualidade 99.33% | 2 invalidos
+14:07:37 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:07:37 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 14400 eventos | qualidade 100.00%
+14:07:37 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:07:37 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:07:37 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_140737.parquet
+14:07:37 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:07:37 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_140737.parquet
+14:07:37 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:07:37 | INFO    | bibliodata.transform.silver  | Silver/acessos: 14400 validos | 0 em quarentena | qualidade 100.00%
+14:07:37 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: duckdb
+14:07:37 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:07:37 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:07:37 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 12 linhas
+14:07:37 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:07:37 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:07:37 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:07:37 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:07:37 | INFO    | bibliodata.orquestrador      | ================================================================
+14:07:37 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_140737_1086eb | status=sucesso
+14:07:37 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=1400    out=1400    0.04s
+14:07:37 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=14400   out=14400   0.07s | qualidade 100.00%
+14:07:37 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=15800   out=15791   0.10s | qualidade 98.83% | quarentena 9
+14:07:37 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=61      0.15s
+14:07:37 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.04s
+14:07:37 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:07:37 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 39000 -> 1400 (96% de variacao)
+14:07:37 | INFO    | bibliodata.orquestrador      | ================================================================
+14:07:38 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:07:38 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:07:38 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_140738.parquet
+14:07:38 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:07:38 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_140738.parquet
+14:07:38 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:07:38 | INFO    | bibliodata.transform.silver  | Silver/acessos: 14400 validos | 0 em quarentena | qualidade 100.00%
+14:10:14 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:14 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141014_ba17a4
+14:10:14 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:10:14 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:14 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:10:14 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 300 registros -> usuarios.csv
+14:10:14 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 200 registros -> livros.csv
+14:10:14 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 600 registros -> emprestimos.csv
+14:10:14 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 300 registros -> avaliacoes.csv
+14:10:14 | INFO    | bibliodata.ingestao.producer | Publicando 100 eventos na fila em arquivo -> acessos_20260611_141014.jsonl
+14:10:14 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 300 linhas | qualidade 100.00% | 0 invalidos
+14:10:14 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 200 linhas | qualidade 100.00% | 0 invalidos
+14:10:14 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 600 linhas | qualidade 98.83% | 7 invalidos
+14:10:14 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 300 linhas | qualidade 99.33% | 2 invalidos
+14:10:14 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:10:14 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 14500 eventos | qualidade 100.00%
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:10:14 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_141014.parquet
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:10:14 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_141014.parquet
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/acessos: 14500 validos | 0 em quarentena | qualidade 100.00%
+14:10:14 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: duckdb
+14:10:14 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:10:14 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:10:14 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 12 linhas
+14:10:14 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:10:14 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:10:14 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:10:14 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:10:14 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:14 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_141014_ba17a4 | status=sucesso
+14:10:14 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=1400    out=1400    0.05s
+14:10:14 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=14500   out=14500   0.07s | qualidade 100.00%
+14:10:14 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=15900   out=15891   0.10s | qualidade 98.83% | quarentena 9
+14:10:14 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=61      0.15s
+14:10:14 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.04s
+14:10:14 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:10:14 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_141014.parquet
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:10:14 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_141014.parquet
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:10:14 | INFO    | bibliodata.transform.silver  | Silver/acessos: 14500 validos | 0 em quarentena | qualidade 100.00%
+14:10:35 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:35 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141035_81c3a2
+14:10:35 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:10:35 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:35 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:10:36 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:10:36 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:10:36 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:10:36 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:10:36 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_141036.jsonl
+14:10:36 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:10:36 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:10:36 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:10:36 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:10:36 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:10:36 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 16500 eventos | qualidade 100.00%
+14:10:36 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_141036.parquet
+14:10:36 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:10:36 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:10:36 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_141036.parquet
+14:10:36 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:10:36 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_141036.parquet
+14:10:36 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:10:36 | INFO    | bibliodata.transform.silver  | Silver/acessos: 16500 validos | 0 em quarentena | qualidade 100.00%
+14:10:36 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: duckdb
+14:10:36 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:10:36 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:10:36 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+14:10:36 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:10:36 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:10:36 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:10:37 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:10:37 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:37 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_141035_81c3a2 | status=sucesso
+14:10:37 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.13s
+14:10:37 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=16500   out=16500   0.07s | qualidade 100.00%
+14:10:37 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=55500   out=55158   0.18s | qualidade 98.86% | quarentena 342
+14:10:37 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.24s
+14:10:37 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.06s
+14:10:37 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:10:37 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 1400 -> 39000 (2686% de variacao)
+14:10:37 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:56 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:56 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141056_f08072
+14:10:56 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:10:56 | INFO    | bibliodata.orquestrador      | ================================================================
+14:10:56 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com fallback (stdlib) (seed=42)
+14:10:56 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:10:56 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:10:56 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:10:56 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:10:56 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_141056.jsonl
+14:10:56 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 99.04% | 96 invalidos
+14:10:56 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:10:56 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.98% | 204 invalidos
+14:10:56 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.40% | 24 invalidos
+14:10:56 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:10:56 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 18500 eventos | qualidade 100.00%
+14:11:59 | INFO    | bibliodata.orquestrador      | ================================================================
+14:11:59 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141159_031c86
+14:11:59 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'duckdb', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:11:59 | INFO    | bibliodata.orquestrador      | ================================================================
+14:11:59 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:11:59 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:11:59 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:11:59 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:11:59 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:11:59 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_141159.jsonl
+14:11:59 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:11:59 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:11:59 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:11:59 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:11:59 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:11:59 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 20500 eventos | qualidade 100.00%
+14:11:59 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_141159.parquet
+14:11:59 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:12:00 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:12:00 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_141200.parquet
+14:12:00 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:12:00 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_141200.parquet
+14:12:00 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:12:00 | INFO    | bibliodata.transform.silver  | Silver/acessos: 20500 validos | 0 em quarentena | qualidade 100.00%
+14:12:00 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 1): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 27116) | retry em 1.0s
+14:12:01 | WARNING | bibliodata.orquestrador      | Tarefa 'transformar_gold' falhou (tentativa 2): IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 27116) | retry em 2.0s
+14:12:03 | ERROR   | bibliodata.orquestrador      | Pipeline interrompido: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 27116)
+Traceback (most recent call last):
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 88, in rodar
+    _executar_com_retry(
+    ~~~~~~~~~~~~~~~~~~~^
+        "transformar_gold", transformar_gold.transformar, metrics, metrics=metrics
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\pipeline.py", line 38, in _executar_com_retry
+    return func(**kwargs)
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 139, in transformar
+    conn, engine = _conectar()
+                   ~~~~~~~~~^^
+  File "C:\Users\isadora.durante\Downloads\bibliodata\src\transform\transformar_gold.py", line 95, in _conectar
+    return duckdb.connect(str(settings.GOLD_DUCKDB)), "duckdb"
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 27116)
+14:12:03 | INFO    | bibliodata.orquestrador      | ================================================================
+14:12:03 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_141159_031c86 | status=falha
+14:12:03 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.12s
+14:12:03 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=20500   out=20500   0.08s | qualidade 100.00%
+14:12:03 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=59500   out=59158   0.18s | qualidade 98.86% | quarentena 342
+14:12:03 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:12:03 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 1)
+14:12:03 | INFO    | bibliodata.orquestrador      |     [WARN] Retry de 'transformar_gold' (tentativa 2)
+14:12:03 | INFO    | bibliodata.orquestrador      |     [CRITICAL] Tarefa 'transformar_gold' falhou apos 2 retries: IO Error: Cannot open file "C:\Users\isadora.durante\Downloads\bibliodata\data\gold\bibliodata.duckdb": O arquivo já está sendo usado por outro processo.
+
+File is already open in 
+C:\Users\isadora.durante\AppData\Local\Programs\Python\Python314\python.exe (PID 27116)
+14:12:03 | INFO    | bibliodata.orquestrador      | ================================================================
+14:14:06 | INFO    | bibliodata.orquestrador      | ================================================================
+14:14:06 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141406_00aeac
+14:14:06 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:14:06 | INFO    | bibliodata.orquestrador      | ================================================================
+14:14:06 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:14:07 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:14:07 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:14:07 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:14:07 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:14:07 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_141407.jsonl
+14:14:07 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:14:07 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:14:07 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:14:07 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:14:07 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:14:07 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 22500 eventos | qualidade 100.00%
+14:14:07 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_141407.parquet
+14:14:07 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:14:07 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:14:07 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_141407.parquet
+14:14:07 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:14:07 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_141407.parquet
+14:14:07 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:14:07 | INFO    | bibliodata.transform.silver  | Silver/acessos: 22500 validos | 0 em quarentena | qualidade 100.00%
+14:14:07 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+14:14:08 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:14:08 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:14:08 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+14:14:08 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:14:08 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:14:08 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:14:08 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:14:08 | INFO    | bibliodata.orquestrador      | ================================================================
+14:14:08 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_141406_00aeac | status=sucesso
+14:14:08 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.13s
+14:14:08 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=22500   out=22500   0.09s | qualidade 100.00%
+14:14:08 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=61500   out=61158   0.18s | qualidade 98.86% | quarentena 342
+14:14:08 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.52s
+14:14:08 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.07s
+14:14:08 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:21 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:21 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141621_4c991f
+14:16:21 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:16:21 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:16:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:16:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:16:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:16:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:16:21 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_141621.jsonl
+14:16:21 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:16:21 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:16:21 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:16:21 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:16:21 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:16:22 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 24500 eventos | qualidade 100.00%
+14:16:22 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_141622.parquet
+14:16:22 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:16:22 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:16:22 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_141622.parquet
+14:16:22 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:16:22 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_141622.parquet
+14:16:22 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:16:22 | INFO    | bibliodata.transform.silver  | Silver/acessos: 24500 validos | 0 em quarentena | qualidade 100.00%
+14:16:22 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+14:16:22 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:16:22 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:16:22 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+14:16:22 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:16:22 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:16:22 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:16:22 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:16:22 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:22 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_141621_4c991f | status=sucesso
+14:16:22 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.13s
+14:16:22 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=24500   out=24500   0.10s | qualidade 100.00%
+14:16:22 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=63500   out=63158   0.19s | qualidade 98.86% | quarentena 342
+14:16:22 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.43s
+14:16:22 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.07s
+14:16:22 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:52 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:52 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141652_423002
+14:16:52 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:16:52 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:52 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:16:52 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 300 registros -> usuarios.csv
+14:16:52 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 200 registros -> livros.csv
+14:16:52 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 600 registros -> emprestimos.csv
+14:16:52 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 300 registros -> avaliacoes.csv
+14:16:52 | INFO    | bibliodata.ingestao.producer | Publicando 100 eventos na fila em arquivo -> acessos_20260611_141652.jsonl
+14:16:52 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 300 linhas | qualidade 100.00% | 0 invalidos
+14:16:52 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 200 linhas | qualidade 100.00% | 0 invalidos
+14:16:52 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 600 linhas | qualidade 98.83% | 7 invalidos
+14:16:52 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 300 linhas | qualidade 99.33% | 2 invalidos
+14:16:52 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:16:52 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 24600 eventos | qualidade 100.00%
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:16:52 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_141652.parquet
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:16:52 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_141652.parquet
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/acessos: 24600 validos | 0 em quarentena | qualidade 100.00%
+14:16:52 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+14:16:52 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:16:52 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:16:52 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 12 linhas
+14:16:52 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:16:52 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:16:52 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:16:52 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:16:52 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:52 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_141652_423002 | status=sucesso
+14:16:52 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=1400    out=1400    0.04s
+14:16:52 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=24600   out=24600   0.10s | qualidade 100.00%
+14:16:52 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=26000   out=25991   0.11s | qualidade 98.83% | quarentena 9
+14:16:52 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=61      0.26s
+14:16:52 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.04s
+14:16:52 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:16:52 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 39000 -> 1400 (96% de variacao)
+14:16:52 | INFO    | bibliodata.orquestrador      | ================================================================
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:16:52 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_141652.parquet
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:16:52 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_141652.parquet
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:16:52 | INFO    | bibliodata.transform.silver  | Silver/acessos: 24600 validos | 0 em quarentena | qualidade 100.00%
+14:17:17 | INFO    | bibliodata.orquestrador      | ================================================================
+14:17:17 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141717_dae750
+14:17:17 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:17:17 | INFO    | bibliodata.orquestrador      | ================================================================
+14:17:17 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:17:17 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:17:17 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:17:17 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:17:17 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:17:17 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_141717.jsonl
+14:17:17 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:17:18 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:17:18 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:17:18 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:17:18 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:17:18 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 2000 eventos | qualidade 100.00%
+14:17:18 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_141718.parquet
+14:17:18 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:17:18 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:17:18 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_141718.parquet
+14:17:18 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:17:18 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_141718.parquet
+14:17:18 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:17:18 | INFO    | bibliodata.transform.silver  | Silver/acessos: 2000 validos | 0 em quarentena | qualidade 100.00%
+14:17:18 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+14:17:18 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:17:18 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:17:18 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+14:17:18 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:17:18 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:17:18 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:17:18 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:17:18 | INFO    | bibliodata.orquestrador      | ================================================================
+14:17:18 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_141717_dae750 | status=sucesso
+14:17:18 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.12s
+14:17:18 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=2000    out=2000    0.01s | qualidade 100.00%
+14:17:18 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=41000   out=40658   0.16s | qualidade 98.86% | quarentena 342
+14:17:18 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.35s
+14:17:18 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.06s
+14:17:18 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:17:18 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 1400 -> 39000 (2686% de variacao)
+14:17:18 | INFO    | bibliodata.orquestrador      | ================================================================
+14:17:21 | INFO    | bibliodata.orquestrador      | ================================================================
+14:17:21 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_141721_aceea5
+14:17:21 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:17:21 | INFO    | bibliodata.orquestrador      | ================================================================
+14:17:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:17:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 300 registros -> usuarios.csv
+14:17:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 200 registros -> livros.csv
+14:17:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 600 registros -> emprestimos.csv
+14:17:21 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 300 registros -> avaliacoes.csv
+14:17:21 | INFO    | bibliodata.ingestao.producer | Publicando 100 eventos na fila em arquivo -> acessos_20260611_141721.jsonl
+14:17:21 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 300 linhas | qualidade 100.00% | 0 invalidos
+14:17:21 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 200 linhas | qualidade 100.00% | 0 invalidos
+14:17:21 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 600 linhas | qualidade 98.83% | 7 invalidos
+14:17:21 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 300 linhas | qualidade 99.33% | 2 invalidos
+14:17:21 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:17:21 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 2100 eventos | qualidade 100.00%
+14:17:21 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:17:21 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:17:21 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_141721.parquet
+14:17:21 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:17:21 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_141721.parquet
+14:17:21 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:17:21 | INFO    | bibliodata.transform.silver  | Silver/acessos: 2100 validos | 0 em quarentena | qualidade 100.00%
+14:17:21 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+14:17:22 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:17:22 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:17:22 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 12 linhas
+14:17:22 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:17:22 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:17:22 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:17:22 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:17:22 | INFO    | bibliodata.orquestrador      | ================================================================
+14:17:22 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_141721_aceea5 | status=sucesso
+14:17:22 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=1400    out=1400    0.06s
+14:17:22 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=2100    out=2100    0.02s | qualidade 100.00%
+14:17:22 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=3500    out=3491    0.11s | qualidade 98.83% | quarentena 9
+14:17:22 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=61      0.23s
+14:17:22 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.05s
+14:17:22 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:17:22 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 39000 -> 1400 (96% de variacao)
+14:17:22 | INFO    | bibliodata.orquestrador      | ================================================================
+14:17:22 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:17:22 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:17:22 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_141722.parquet
+14:17:22 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:17:22 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_141722.parquet
+14:17:22 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:17:22 | INFO    | bibliodata.transform.silver  | Silver/acessos: 2100 validos | 0 em quarentena | qualidade 100.00%
+14:20:50 | INFO    | bibliodata.orquestrador      | ================================================================
+14:20:50 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_142050_604ecb
+14:20:50 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:20:50 | INFO    | bibliodata.orquestrador      | ================================================================
+14:20:50 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:20:50 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:20:50 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:20:50 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:20:50 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:20:50 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_142050.jsonl
+14:20:50 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:20:50 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:20:51 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:20:51 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:20:51 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:20:51 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 2000 eventos | qualidade 100.00%
+14:20:51 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_142051.parquet
+14:20:51 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:20:51 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:20:51 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_142051.parquet
+14:20:51 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:20:51 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_142051.parquet
+14:20:51 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:20:51 | INFO    | bibliodata.transform.silver  | Silver/acessos: 2000 validos | 0 em quarentena | qualidade 100.00%
+14:20:51 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+14:20:51 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:20:51 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:20:51 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+14:20:51 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:20:51 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:20:51 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:20:51 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:20:51 | INFO    | bibliodata.orquestrador      | ================================================================
+14:20:51 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_142050_604ecb | status=sucesso
+14:20:51 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.16s
+14:20:51 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=2000    out=2000    0.02s | qualidade 100.00%
+14:20:51 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=41000   out=40658   0.18s | qualidade 98.86% | quarentena 342
+14:20:51 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.30s
+14:20:51 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.06s
+14:20:51 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:20:51 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 1400 -> 39000 (2686% de variacao)
+14:20:51 | INFO    | bibliodata.orquestrador      | ================================================================
+14:21:15 | INFO    | bibliodata.orquestrador      | ================================================================
+14:21:15 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_142115_71f6de
+14:21:15 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:21:15 | INFO    | bibliodata.orquestrador      | ================================================================
+14:21:15 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:21:15 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+14:21:15 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+14:21:16 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+14:21:16 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+14:21:16 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260611_142116.jsonl
+14:21:16 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+14:21:16 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+14:21:16 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+14:21:16 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+14:21:16 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:21:16 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 4000 eventos | qualidade 100.00%
+14:21:16 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260611_142116.parquet
+14:21:16 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+14:21:16 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+14:21:16 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260611_142116.parquet
+14:21:16 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+14:21:16 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260611_142116.parquet
+14:21:16 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+14:21:16 | INFO    | bibliodata.transform.silver  | Silver/acessos: 4000 validos | 0 em quarentena | qualidade 100.00%
+14:21:16 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+14:21:16 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:21:16 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:21:16 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+14:21:16 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:21:16 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:21:16 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:21:16 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:21:16 | INFO    | bibliodata.orquestrador      | ================================================================
+14:21:16 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_142115_71f6de | status=sucesso
+14:21:16 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   0.13s
+14:21:16 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=4000    out=4000    0.02s | qualidade 100.00%
+14:21:16 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=43000   out=42658   0.17s | qualidade 98.86% | quarentena 342
+14:21:16 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.34s
+14:21:16 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.05s
+14:21:16 | INFO    | bibliodata.orquestrador      | ================================================================
+14:23:39 | INFO    | bibliodata.orquestrador      | ================================================================
+14:23:39 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260611_142339_9067d9
+14:23:39 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+14:23:39 | INFO    | bibliodata.orquestrador      | ================================================================
+14:23:39 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+14:23:39 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 300 registros -> usuarios.csv
+14:23:39 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 200 registros -> livros.csv
+14:23:39 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 600 registros -> emprestimos.csv
+14:23:39 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 300 registros -> avaliacoes.csv
+14:23:39 | INFO    | bibliodata.ingestao.producer | Publicando 100 eventos na fila em arquivo -> acessos_20260611_142339.jsonl
+14:23:39 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 300 linhas | qualidade 100.00% | 0 invalidos
+14:23:39 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 200 linhas | qualidade 100.00% | 0 invalidos
+14:23:39 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 600 linhas | qualidade 98.83% | 7 invalidos
+14:23:39 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 300 linhas | qualidade 99.33% | 2 invalidos
+14:23:39 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+14:23:39 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 4100 eventos | qualidade 100.00%
+14:23:39 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:23:39 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:23:39 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_142339.parquet
+14:23:39 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:23:39 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_142339.parquet
+14:23:39 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:23:39 | INFO    | bibliodata.transform.silver  | Silver/acessos: 4100 validos | 0 em quarentena | qualidade 100.00%
+14:23:39 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+14:23:40 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+14:23:40 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+14:23:40 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 12 linhas
+14:23:40 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+14:23:40 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+14:23:40 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+14:23:40 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+14:23:40 | INFO    | bibliodata.orquestrador      | ================================================================
+14:23:40 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260611_142339_9067d9 | status=sucesso
+14:23:40 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=1400    out=1400    0.09s
+14:23:40 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=4100    out=4100    0.04s | qualidade 100.00%
+14:23:40 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=5500    out=5491    0.10s | qualidade 98.83% | quarentena 9
+14:23:40 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=61      0.26s
+14:23:40 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.05s
+14:23:40 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+14:23:40 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 39000 -> 1400 (96% de variacao)
+14:23:40 | INFO    | bibliodata.orquestrador      | ================================================================
+14:23:40 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 300 validos | 0 em quarentena | qualidade 100.00%
+14:23:40 | INFO    | bibliodata.transform.silver  | Silver/livros: 200 validos | 0 em quarentena | qualidade 100.00%
+14:23:40 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 7 registros -> emprestimos_20260611_142340.parquet
+14:23:40 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 593 validos | 7 em quarentena | qualidade 98.83%
+14:23:40 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 2 registros -> avaliacoes_20260611_142340.parquet
+14:23:40 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 298 validos | 2 em quarentena | qualidade 99.33%
+14:23:40 | INFO    | bibliodata.transform.silver  | Silver/acessos: 4100 validos | 0 em quarentena | qualidade 100.00%
+13:32:00 | INFO    | bibliodata.orquestrador      | ================================================================
+13:32:00 | INFO    | bibliodata.orquestrador      | INICIANDO PIPELINE | run_id=20260614_133200_33ba0d
+13:32:00 | INFO    | bibliodata.orquestrador      | Config: {'storage_format': 'parquet', 'gold_engine': 'sqlite', 'stream_backend': 'file', 'seed': 42, 'quality_gate_min_pass_rate': 0.95, 'max_retries': 2}
+13:32:00 | INFO    | bibliodata.orquestrador      | ================================================================
+13:32:00 | INFO    | bibliodata.ingestao.gerar_dados | Gerando dados sinteticos com Faker (seed=42)
+13:32:01 | INFO    | bibliodata.ingestao.gerar_dados | Gerado usuarios: 10000 registros -> usuarios.csv
+13:32:01 | INFO    | bibliodata.ingestao.gerar_dados | Gerado livros: 5000 registros -> livros.csv
+13:32:01 | INFO    | bibliodata.ingestao.gerar_dados | Gerado emprestimos: 20000 registros -> emprestimos.csv
+13:32:01 | INFO    | bibliodata.ingestao.gerar_dados | Gerado avaliacoes: 4000 registros -> avaliacoes.csv
+13:32:01 | INFO    | bibliodata.ingestao.producer | Publicando 2000 eventos na fila em arquivo -> acessos_20260614_133201.jsonl
+13:32:01 | INFO    | bibliodata.ingestao.batch    | Bronze/usuarios: 10000 linhas | qualidade 98.86% | 114 invalidos
+13:32:03 | INFO    | bibliodata.ingestao.batch    | Bronze/livros: 5000 linhas | qualidade 100.00% | 0 invalidos
+13:32:03 | INFO    | bibliodata.ingestao.batch    | Bronze/emprestimos: 20000 linhas | qualidade 98.95% | 211 invalidos
+13:32:03 | INFO    | bibliodata.ingestao.batch    | Bronze/avaliacoes: 4000 linhas | qualidade 99.58% | 17 invalidos
+13:32:03 | INFO    | bibliodata.ingestao.consumer | Consumindo eventos da fila em arquivo
+13:32:03 | INFO    | bibliodata.ingestao.consumer | Bronze/acessos: 6100 eventos | qualidade 100.00%
+13:32:06 | INFO    | bibliodata.transform.silver  | Quarentena usuarios: 114 registros -> usuarios_20260614_133206.parquet
+13:32:06 | INFO    | bibliodata.transform.silver  | Silver/usuarios: 9886 validos | 114 em quarentena | qualidade 98.86%
+13:32:06 | INFO    | bibliodata.transform.silver  | Silver/livros: 5000 validos | 0 em quarentena | qualidade 100.00%
+13:32:06 | INFO    | bibliodata.transform.silver  | Quarentena emprestimos: 211 registros -> emprestimos_20260614_133206.parquet
+13:32:06 | INFO    | bibliodata.transform.silver  | Silver/emprestimos: 19789 validos | 211 em quarentena | qualidade 98.95%
+13:32:06 | INFO    | bibliodata.transform.silver  | Quarentena avaliacoes: 17 registros -> avaliacoes_20260614_133206.parquet
+13:32:06 | INFO    | bibliodata.transform.silver  | Silver/avaliacoes: 3983 validos | 17 em quarentena | qualidade 99.58%
+13:32:06 | INFO    | bibliodata.transform.silver  | Silver/acessos: 6100 validos | 0 em quarentena | qualidade 100.00%
+13:32:06 | INFO    | bibliodata.transform.gold    | Camada Gold usando engine: sqlite
+13:32:07 | INFO    | bibliodata.transform.gold    | Gold/top_livros: 20 linhas
+13:32:07 | INFO    | bibliodata.transform.gold    | Gold/uso_por_genero: 8 linhas
+13:32:07 | INFO    | bibliodata.transform.gold    | Gold/avaliacao_por_livro: 20 linhas
+13:32:07 | INFO    | bibliodata.transform.gold    | Gold/distribuicao_notas: 5 linhas
+13:32:07 | INFO    | bibliodata.transform.gold    | Gold/emprestimos_por_mes: 13 linhas
+13:32:07 | INFO    | bibliodata.transform.gold    | Gold/eventos_por_tipo: 3 linhas
+13:32:07 | INFO    | bibliodata.orquestrador      | Catalogo e linhagem atualizados em catalog/
+13:32:07 | INFO    | bibliodata.orquestrador      | ================================================================
+13:32:07 | INFO    | bibliodata.orquestrador      | RELATORIO DE SAUDE | run_id=20260614_133200_33ba0d | status=sucesso
+13:32:07 | INFO    | bibliodata.orquestrador      |   ingestao_batch         in=39000   out=39000   2.41s
+13:32:07 | INFO    | bibliodata.orquestrador      |   ingestao_stream        in=6100    out=6100    0.03s | qualidade 100.00%
+13:32:07 | INFO    | bibliodata.orquestrador      |   transformar_silver     in=45100   out=44758   2.94s | qualidade 98.86% | quarentena 342
+13:32:07 | INFO    | bibliodata.orquestrador      |   transformar_gold       in=0       out=69      0.18s
+13:32:07 | INFO    | bibliodata.orquestrador      |   governanca_catalogo    in=0       out=0       0.05s
+13:32:07 | INFO    | bibliodata.orquestrador      |   ALERTAS:
+13:32:07 | INFO    | bibliodata.orquestrador      |     [WARN] Deriva de volume em 'ingestao_batch': 1400 -> 39000 (2686% de variacao)
+13:32:07 | INFO    | bibliodata.orquestrador      | ================================================================

@@ -1,0 +1,2683 @@
+[
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T12:39:44"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T12:39:44"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T12:39:44"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T12:39:44"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 2000,
+    "ts": "2026-06-11T12:39:44"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9904,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19796,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3976,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 2000,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T12:39:45"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 4000,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 4000,
+    "ts": "2026-06-11T12:41:50"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T12:41:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T12:41:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T12:41:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T12:41:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T12:41:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T12:41:51"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 6000,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 6000,
+    "ts": "2026-06-11T12:44:30"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T12:44:31"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T12:44:31"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T12:44:31"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T12:44:31"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T12:44:31"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T12:44:31"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 8000,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T13:45:45"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 8000,
+    "ts": "2026-06-11T13:45:46"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 200,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 600,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 8100,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 8100,
+    "ts": "2026-06-11T13:49:30"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T13:49:33"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T13:49:33"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T13:49:33"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T13:49:33"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 8100,
+    "ts": "2026-06-11T13:49:34"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T13:52:02"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T13:52:02"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T13:52:02"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T13:52:02"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 10100,
+    "ts": "2026-06-11T13:52:02"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 10100,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T13:52:03"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 200,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 600,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 10200,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 10200,
+    "ts": "2026-06-11T13:54:11"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T13:54:15"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T13:54:15"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T13:54:15"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T13:54:15"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 10200,
+    "ts": "2026-06-11T13:54:15"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 12200,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 12200,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:00:23"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:00:24"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 14200,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 14200,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:01:44"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 200,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 600,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 14300,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 14300,
+    "ts": "2026-06-11T14:01:58"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:02:02"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:02:02"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:02:02"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:02:02"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 14300,
+    "ts": "2026-06-11T14:02:02"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 200,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 600,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 14400,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 14400,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 12,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:07:37"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:07:38"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:07:38"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:07:38"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:07:38"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 14400,
+    "ts": "2026-06-11T14:07:38"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 200,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 600,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 14500,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 14500,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 12,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 14500,
+    "ts": "2026-06-11T14:10:14"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 16500,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 16500,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:10:36"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:10:56"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:10:56"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:10:56"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:10:56"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 18500,
+    "ts": "2026-06-11T14:10:56"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:11:59"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:11:59"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:11:59"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:11:59"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 20500,
+    "ts": "2026-06-11T14:11:59"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:11:59"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:11:59"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:12:00"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:12:00"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 20500,
+    "ts": "2026-06-11T14:12:00"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 22500,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 22500,
+    "ts": "2026-06-11T14:14:07"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:14:08"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:14:08"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:14:08"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:14:08"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:14:08"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:14:08"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:16:21"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:16:21"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:16:21"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:16:21"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 24500,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 24500,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:16:22"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 200,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 600,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 24600,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 24600,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 12,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 24600,
+    "ts": "2026-06-11T14:16:52"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 2000,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 2000,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:17:18"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 200,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 600,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 2100,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 2100,
+    "ts": "2026-06-11T14:17:21"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 12,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 2100,
+    "ts": "2026-06-11T14:17:22"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:20:50"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:20:50"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 2000,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 2000,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:20:51"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 4000,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:21:16"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 200,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 600,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 300,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 4100,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 4100,
+    "ts": "2026-06-11T14:23:39"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 12,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 300,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 200,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 593,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 298,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 4100,
+    "ts": "2026-06-11T14:23:40"
+  },
+  {
+    "origem": "raw/usuarios",
+    "destino": "bronze/usuarios",
+    "processo": "ingestao_batch",
+    "linhas": 10000,
+    "ts": "2026-06-14T13:32:03"
+  },
+  {
+    "origem": "raw/livros",
+    "destino": "bronze/livros",
+    "processo": "ingestao_batch",
+    "linhas": 5000,
+    "ts": "2026-06-14T13:32:03"
+  },
+  {
+    "origem": "raw/emprestimos",
+    "destino": "bronze/emprestimos",
+    "processo": "ingestao_batch",
+    "linhas": 20000,
+    "ts": "2026-06-14T13:32:03"
+  },
+  {
+    "origem": "raw/avaliacoes",
+    "destino": "bronze/avaliacoes",
+    "processo": "ingestao_batch",
+    "linhas": 4000,
+    "ts": "2026-06-14T13:32:03"
+  },
+  {
+    "origem": "stream/acessos",
+    "destino": "bronze/acessos",
+    "processo": "kafka_consumer",
+    "linhas": 6100,
+    "ts": "2026-06-14T13:32:03"
+  },
+  {
+    "origem": "bronze/usuarios",
+    "destino": "silver/usuarios",
+    "processo": "transformar_silver",
+    "linhas": 9886,
+    "ts": "2026-06-14T13:32:06"
+  },
+  {
+    "origem": "bronze/livros",
+    "destino": "silver/livros",
+    "processo": "transformar_silver",
+    "linhas": 5000,
+    "ts": "2026-06-14T13:32:06"
+  },
+  {
+    "origem": "bronze/emprestimos",
+    "destino": "silver/emprestimos",
+    "processo": "transformar_silver",
+    "linhas": 19789,
+    "ts": "2026-06-14T13:32:06"
+  },
+  {
+    "origem": "bronze/avaliacoes",
+    "destino": "silver/avaliacoes",
+    "processo": "transformar_silver",
+    "linhas": 3983,
+    "ts": "2026-06-14T13:32:06"
+  },
+  {
+    "origem": "bronze/acessos",
+    "destino": "silver/acessos",
+    "processo": "transformar_silver",
+    "linhas": 6100,
+    "ts": "2026-06-14T13:32:06"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/top_livros",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-14T13:32:07"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/uso_por_genero",
+    "processo": "transformar_gold",
+    "linhas": 8,
+    "ts": "2026-06-14T13:32:07"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/avaliacao_por_livro",
+    "processo": "transformar_gold",
+    "linhas": 20,
+    "ts": "2026-06-14T13:32:07"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/distribuicao_notas",
+    "processo": "transformar_gold",
+    "linhas": 5,
+    "ts": "2026-06-14T13:32:07"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/emprestimos_por_mes",
+    "processo": "transformar_gold",
+    "linhas": 13,
+    "ts": "2026-06-14T13:32:07"
+  },
+  {
+    "origem": "silver/*",
+    "destino": "gold/eventos_por_tipo",
+    "processo": "transformar_gold",
+    "linhas": 3,
+    "ts": "2026-06-14T13:32:07"
+  }
+]

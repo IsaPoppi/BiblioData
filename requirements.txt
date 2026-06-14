@@ -1,0 +1,23 @@
+# Geracao e processamento de dados
+faker==25.2.0
+pandas==2.2.2
+pyarrow==16.1.0
+
+# Camada Gold (engine analitico)
+duckdb==1.0.0
+
+# Streaming
+kafka-python==2.0.2
+
+# Consumo / serving
+streamlit==1.35.0
+
+# Notebook exploratorio
+jupyter==1.0.0
+
+# Observacao: o pipeline tem fallback automatico. Sem pyarrow/duckdb/kafka
+# ele roda em CSV + SQLite + fila em arquivo (somente biblioteca padrao + pandas).
+
+# --- Desenvolvimento / opcionais ---
+pytest==8.2.0           # testes automatizados (pytest -q)
+apscheduler==3.10.4     # opcional: agendamento por expressao cron no agendador.py
