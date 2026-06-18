@@ -21,11 +21,13 @@ Painel analítico construído com Streamlit, lendo a camada Gold e os logs de mo
 
 **Visão geral — KPIs, rankings e séries:**
 
-<<img width="1320" height="923" alt="image" src="https://github.com/user-attachments/assets/701c8a30-a079-44cf-b349-299e93420e35" />
+<<<img width="1278" height="918" alt="image" src="https://github.com/user-attachments/assets/5d43c2bb-4b42-491c-b6de-95f763ae1542" />
+
 
 **Qualidade & Monitoramento — status, taxa de qualidade, quarentena e alertas:**
 
-<<img width="1334" height="912" alt="image" src="https://github.com/user-attachments/assets/c7d05bac-5849-4624-98da-448354205f05" />
+<<<img width="1227" height="912" alt="image" src="https://github.com/user-attachments/assets/d50fc615-c9ca-476d-8432-36c5e60428e7" />
+ 
 
 ---
 
