@@ -99,3 +99,18 @@ def _escrever_dicionario(profile: dict) -> None:
     (settings.CATALOG / "data_dictionary.md").write_text(
         "\n".join(linhas), encoding="utf-8"
     )
+
+
+def gerar_catalogo_dados():
+    """Gera o CATÁLOGO DE DADOS completo (dataset, coluna, tipo, descrição,
+    PII, domínio e setor responsável) em catalog/catalogo_dados.csv.
+
+    Atende à recomendação de um catálogo tabular com tipo, descrição e setor
+    responsável por cada dado. É também a fonte da aba 'Catálogo' do painel.
+    """
+    import pandas as pd
+    from config.data_contracts import catalogo_linhas
+
+    df = pd.DataFrame(catalogo_linhas())
+    df.to_csv(settings.CATALOG / "catalogo_dados.csv", index=False)
+    return df

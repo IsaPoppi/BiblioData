@@ -130,3 +130,88 @@ CONTRATOS = {
 # Datasets que entram pelo caminho batch (CSV) x streaming
 DATASETS_BATCH = ["usuarios", "livros", "emprestimos", "avaliacoes"]
 DATASETS_STREAM = ["acessos"]
+
+
+# ---------------------------------------------------------------------------
+# Metadados de governanca para o CATALOGO DE DADOS
+# Setor responsavel por cada dataset (data ownership) e descricao de cada coluna.
+# ---------------------------------------------------------------------------
+SETORES = {
+    "usuarios": "Cadastro & Atendimento (Domínio Usuários)",
+    "livros": "Curadoria do Acervo (Domínio Acervo)",
+    "emprestimos": "Circulação / Operações (Domínio Empréstimos)",
+    "avaliacoes": "Circulação / Operações (Domínio Empréstimos)",
+    "acessos": "Dados & Analytics (Domínio Análise)",
+}
+
+DESCRICOES_COLUNAS = {
+    "usuarios": {
+        "id_usuario": "Identificador único do leitor (chave primária).",
+        "nome": "Nome do leitor (dado pessoal — pseudonimizado na Silver).",
+        "email": "E-mail do leitor (dado pessoal — mascarado na Silver).",
+        "cidade": "Cidade de cadastro do leitor.",
+        "data_cadastro": "Data em que o leitor se cadastrou.",
+    },
+    "livros": {
+        "id_livro": "Identificador único da obra (chave primária).",
+        "titulo": "Título da obra.",
+        "autor": "Autor da obra.",
+        "isbn": "Código ISBN da obra.",
+        "genero": "Gênero literário.",
+        "editora": "Editora responsável pela publicação.",
+        "ano": "Ano de publicação.",
+    },
+    "emprestimos": {
+        "id_emprestimo": "Identificador único do empréstimo (chave primária).",
+        "id_usuario": "Leitor que realizou o empréstimo (FK para usuarios).",
+        "id_livro": "Obra emprestada (FK para livros).",
+        "data_emprestimo": "Data em que o empréstimo foi realizado.",
+        "data_devolucao": "Data de devolução (nulo se ainda não devolvido).",
+    },
+    "avaliacoes": {
+        "id_avaliacao": "Identificador único da avaliação (chave primária).",
+        "id_usuario": "Leitor que avaliou (FK para usuarios).",
+        "id_livro": "Obra avaliada (FK para livros).",
+        "nota": "Nota atribuída (1 a 5).",
+        "comentario": "Comentário textual da avaliação.",
+        "data_avaliacao": "Data da avaliação.",
+    },
+    "acessos": {
+        "id_evento": "Identificador único do evento de acesso.",
+        "id_usuario": "Leitor que gerou o evento.",
+        "tipo_evento": "Tipo do evento: busca, clique ou visualização.",
+        "id_livro": "Obra relacionada ao evento.",
+        "timestamp_evento": "Momento em que o evento ocorreu.",
+    },
+}
+
+# Origem e periodicidade (para o catálogo)
+ORIGENS = {
+    "usuarios": ("Sistema de cadastro", "CSV", "Batch diário", "até 24 h"),
+    "livros": ("Sistema de catalogação", "CSV", "Batch semanal", "até 7 dias"),
+    "emprestimos": ("Sistema transacional", "CSV", "Batch diário", "até 24 h"),
+    "avaliacoes": ("Módulo de avaliação", "CSV", "Batch diário", "até 24 h"),
+    "acessos": ("Eventos da plataforma", "JSON", "Streaming", "segundos"),
+}
+
+
+def catalogo_linhas() -> list[dict]:
+    """Monta o catálogo de dados completo (uma linha por coluna)."""
+    linhas = []
+    for ds, contrato in CONTRATOS.items():
+        origem, formato, freq, lat = ORIGENS.get(ds, ("-", "-", "-", "-"))
+        for coluna, tipo in contrato["colunas"].items():
+            linhas.append({
+                "dataset": ds,
+                "coluna": coluna,
+                "tipo": tipo,
+                "descricao": DESCRICOES_COLUNAS.get(ds, {}).get(coluna, ""),
+                "pii": "Sim" if coluna in contrato.get("pii", []) else "Não",
+                "dominio": contrato.get("dominio", ""),
+                "setor_responsavel": SETORES.get(ds, ""),
+                "origem": origem,
+                "formato": formato,
+                "frequencia": freq,
+                "latencia": lat,
+            })
+    return linhas

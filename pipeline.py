@@ -106,6 +106,7 @@ def rodar(gerar: bool = True) -> dict:
 def _gerar_governanca(metrics: RunMetrics) -> None:
     t0 = time.time()
     profile = catalog.gerar_catalogo()
+    catalog.gerar_catalogo_dados()  # catálogo de dados (tipo, descrição, setor)
     if profile.get("deriva_schema"):
         for aviso in profile["deriva_schema"]:
             metrics.alerta("WARN", f"Deriva de schema: {aviso}")

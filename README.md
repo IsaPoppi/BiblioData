@@ -21,13 +21,11 @@ Painel analítico construído com Streamlit, lendo a camada Gold e os logs de mo
 
 **Visão geral — KPIs, rankings e séries:**
 
-<<<img width="1278" height="918" alt="image" src="https://github.com/user-attachments/assets/5d43c2bb-4b42-491c-b6de-95f763ae1542" />
-
+<img src="docs/img/painel-geral.png" width="100%">
 
 **Qualidade & Monitoramento — status, taxa de qualidade, quarentena e alertas:**
 
-<<<img width="1227" height="912" alt="image" src="https://github.com/user-attachments/assets/d50fc615-c9ca-476d-8432-36c5e60428e7" />
- 
+<img src="docs/img/painel-qualidade.png" width="100%">
 
 ---
 
@@ -185,19 +183,31 @@ flowchart TB
         TS["transformar_silver.py<br/>limpeza + quarentena"]
         TG["transformar_gold.py<br/>agregações SQL"]
     end
-    DASH["5. Consumo<br/>Streamlit / Metabase"]
+    DASH["5. Consumo — Streamlit<br/>Visão Geral · Saúde · Catálogo"]
 
     IB --> BR
     KC --> BR
     BR --> TS --> SI --> TG --> GO --> DASH
 
-    QC["Qualidade"] -. valida + quarentena .-> TS
+    %% Qualidade, quarentena e quality gate
+    QC["Qualidade<br/>contratos + checks"] -. valida .-> TS
     QUAR[("🚧 Quarentena")]
     TS -.->|reprovados| QUAR
-    TS -->|quality gate reprovado| GATE{{"Quality Gate"}}
-    GATE -. bloqueia .-> TG
-    MON["Monitoramento"] -->|alertas / deriva| ORQ["pipeline.py + agendador.py"]
+    TS --> GATE{{"Quality Gate"}}
+    GATE -. bloqueia se reprovado .-> TG
     QUAR -.->|reprocessar.py| BR
+
+    %% Governança e Catálogo de Dados
+    GOV["Governança<br/>linhagem + LGPD"] -. anota .-> SI
+    GOV -->|gera| CAT["🗂️ Catálogo de Dados<br/>tipo · descrição · setor"]
+    CAT --> DASH
+
+    %% Monitoramento, Health Check e Recovery
+    MON["Monitoramento<br/>logs · métricas · alertas"] -->|alimenta| DASH
+    HEALTH["monitorar.py<br/>health check + alerta"] -. verifica .-> GO
+    HEALTH -->|recovery: reconstrói| GO
+    ORQ["pipeline.py + agendador.py<br/>orquestração + retries"] --> ING
+    MON -->|deriva / falha| ORQ
     DASH -.->|KPIs de qualidade orientam correção| ING
 ```
 
@@ -259,8 +269,8 @@ Estas camadas atravessam todo o pipeline e foram a principal evolução em rela�
 
 - **Qualidade** (`src/quality/`): motor de regras derivado de **contratos de dados** (`config/data_contracts.py`) — not_null, unique, FK, faixa, regex, freshness. Registros reprovados vão para a **quarentena** (`data/quarantine/`). Papel análogo ao do Soda Core / Great Expectations.
 - **Segurança / LGPD** (`src/governance/privacy.py`): PII (nome, e-mail) é **pseudonimizada/mascarada** já na Silver; o sal vem do `.env` (fora do código); a Gold expõe **apenas agregados**. A Bronze (com o dado original) é auditável e de acesso restrito.
-- **Governança** (`src/governance/`): **catálogo/dicionário de dados** automático, **linhagem** (origem→bronze→silver→gold) e detecção de **deriva de schema**. Saídas em `catalog/`.
-- **Monitoramento** (`src/monitoring/`): **logging estruturado**, **métricas por execução** (linhas in/out, duração, taxa de qualidade, quarentena), **alertas** e detecção de **deriva de volume**. Saídas em `logs/`.
+- **Governança** (`src/governance/`): **catálogo de dados** (gerado em `catalog/catalogo_dados.csv` e exibido na aba *Catálogo* do painel) com **tipo, descrição, classificação LGPD e setor responsável** por cada dado; **linhagem** (origem→bronze→silver→gold) e detecção de **deriva de schema**. Saídas em `catalog/`.
+- **Monitoramento** (`src/monitoring/`): **logging estruturado**, **métricas por execução**, **alertas** e detecção de **deriva de volume**. Inclui um **health check** (`monitorar.py` / `src/monitoring/health.py`) que verifica se o pipeline rodou, se o **banco Gold está acessível** e se os dados estão atualizados — com **semáforo visual** na aba *Saúde* do painel e **recovery** automático (reconstrói a Gold a partir da Silver). Saídas em `logs/`.
 
 **Retroalimentações (o ciclo, não só o caminho feliz):**
 1. Qualidade → **quarentena** (nada é descartado em silêncio).
@@ -304,11 +314,13 @@ python pipeline.py
 ## 8. Testes, Agendamento e Reprocessamento
 
 ```bash
-pytest -q                                  # 9 testes (qualidade, LGPD, pipeline, gate)
+pytest -q                                  # 11 testes (qualidade, LGPD, pipeline, gate, health)
 python agendador.py --once                 # agendamento: uma vez
 python agendador.py --intervalo 3600       # a cada 1 h (stdlib, sem deps)
 python reprocessar.py listar               # ver a quarentena
 python reprocessar.py usuarios             # revalidar e reintegrar recuperáveis
+python monitorar.py                        # health check (semáforo + código de saída)
+python monitorar.py --recuperar            # recovery: reconstrói o banco Gold se cair
 ```
 
 ---

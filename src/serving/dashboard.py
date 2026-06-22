@@ -21,7 +21,9 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from config import settings  # noqa: E402
+from config.data_contracts import catalogo_linhas  # noqa: E402
 from src.monitoring.metrics import carregar_historico  # noqa: E402
+from src.monitoring import health  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Identidade visual
@@ -109,7 +111,7 @@ def grafico_base(c):
 
 
 # ===========================================================================
-abas = st.tabs(["📊 Visão Geral", "🔎 Qualidade & Monitoramento"])
+abas = st.tabs(["📊 Visão Geral", "🩺 Saúde & Monitoramento", "🗂️ Catálogo de Dados"])
 
 # ---------------------------------------------------------------------------
 # ABA 1 — VISAO GERAL
@@ -218,6 +220,26 @@ with abas[0]:
 # ABA 2 — QUALIDADE & MONITORAMENTO
 # ---------------------------------------------------------------------------
 with abas[1]:
+    # ---- Saúde do Sistema (semáforo visual, sem precisar ler logs) ----
+    st.markdown('<div class="secao">🩺 Saúde do Sistema</div>', unsafe_allow_html=True)
+    rel = health.verificar()
+    cor_geral = {"ok": VERDE, "alerta": AMBAR, "critico": VERMELHO}.get(rel["status_geral"], "#64748B")
+    rotulo_geral = {"ok": "TUDO OPERACIONAL", "alerta": "ATENÇÃO", "critico": "FALHA DETECTADA"}.get(rel["status_geral"])
+    st.markdown(f'<span class="badge" style="background:{cor_geral}">{rotulo_geral}</span>',
+                unsafe_allow_html=True)
+    st.write("")
+    _icone = {"ok": "🟢", "alerta": "🟡", "critico": "🔴"}
+    cols = st.columns(3)
+    for i, item in enumerate(rel["itens"]):
+        with cols[i % 3]:
+            st.markdown(
+                f'<div class="kpi"><div class="l">{_icone[item["status"]]} {item["nome"]}</div>'
+                f'<div style="font-size:.82rem;color:#475569;margin-top:4px">{item["detalhe"]}</div></div>',
+                unsafe_allow_html=True)
+    if rel["status_geral"] == "critico":
+        st.error("Há falha crítica. Recovery: rode `python monitorar.py --recuperar` para reconstruir o banco Gold.")
+    st.divider()
+
     hist = carregar_historico(limite=20)
     if not hist:
         st.info("Nenhuma execução registrada ainda. Rode `python pipeline.py`.")
@@ -283,3 +305,40 @@ with abas[1]:
                 return m.get(v, "")
             st.dataframe(dfa.style.map(_cor_sev, subset=["severidade"]),
                          use_container_width=True, hide_index=True)
+
+
+# ---------------------------------------------------------------------------
+# ABA 3 — CATÁLOGO DE DADOS
+# ---------------------------------------------------------------------------
+with abas[2]:
+    st.markdown('<div class="secao">🗂️ Catálogo de Dados</div>', unsafe_allow_html=True)
+    st.caption("Todos os dados do projeto: tipo, descrição, classificação LGPD e setor responsável.")
+
+    cat = pd.DataFrame(catalogo_linhas())
+
+    # Resumo por dataset (visão de alto nível)
+    resumo = (cat.groupby(["dataset", "dominio", "setor_responsavel", "origem", "formato", "frequencia"])
+                 .size().reset_index(name="qtd_colunas"))
+    st.markdown('<div class="secao">Datasets e setores responsáveis</div>', unsafe_allow_html=True)
+    st.dataframe(
+        resumo, use_container_width=True, hide_index=True,
+        column_config={
+            "dataset": "Dataset", "dominio": "Domínio",
+            "setor_responsavel": "Setor responsável", "origem": "Origem",
+            "formato": "Formato", "frequencia": "Frequência",
+            "qtd_colunas": st.column_config.NumberColumn("Colunas"),
+        })
+
+    # Dicionário completo (coluna a coluna), com filtro por dataset
+    st.markdown('<div class="secao">Dicionário de dados (coluna a coluna)</div>', unsafe_allow_html=True)
+    opcoes = ["(todos)"] + sorted(cat["dataset"].unique().tolist())
+    escolha = st.selectbox("Filtrar por dataset:", opcoes)
+    vis = cat if escolha == "(todos)" else cat[cat["dataset"] == escolha]
+    st.dataframe(
+        vis[["dataset", "coluna", "tipo", "descricao", "pii", "setor_responsavel"]],
+        use_container_width=True, hide_index=True,
+        column_config={
+            "dataset": "Dataset", "coluna": "Coluna", "tipo": "Tipo",
+            "descricao": "Descrição", "pii": "Dado pessoal (LGPD)",
+            "setor_responsavel": "Setor responsável",
+        })
